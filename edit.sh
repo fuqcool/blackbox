@@ -1,6 +1,13 @@
 #!/bin/bash
 
+if [ $# -eq 0 ]; then
+    echo "No arguments supplied."
+    exit 1
+fi
+
 FILE=$1
+ENCRYPT_METHOD=-aes-256-cbc
+
 export PASSWORD
 
 if [ ! -f $FILE ]; then
@@ -10,7 +17,7 @@ if [ ! -f $FILE ]; then
 else
     read -s -p "Please enter your password: " PASSWORD
     echo
-    openssl enc -aes-256-cbc -d -in $FILE -pass "env:PASSWORD" > $FILE.tmp
+    openssl enc $ENCRYPT_METHOD -d -in $FILE -pass "env:PASSWORD" > $FILE.tmp
 
     RESULT=$?
     if [ ! $RESULT -eq 0 ]; then
@@ -25,10 +32,11 @@ vim $FILE.tmp
 RESULT=$?
 if [ $RESULT -eq 0 ]; then
     echo "Encrypt $FILE ..."
-    openssl enc -aes-256-cbc -in $FILE.tmp -out $FILE -pass "env:PASSWORD"
+    openssl enc $ENCRYPT_METHOD -in $FILE.tmp -out $FILE -pass "env:PASSWORD"
 fi
 if [ -f $FILE.tmp ]; then
     rm $FILE.tmp
 fi
 
+unset PASSWORD
 echo "Done."
