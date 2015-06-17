@@ -5,10 +5,10 @@ Inspired by John Resig, this tool encrypts almost everything that can be put int
 Open your shell, use command
 
 ```
-./edit.sh FILE-YOU-WANNA-ENCRYPT
+./blackbox.sh FILE-YOU-WANNA-ENCRYPT
 ```
 
-Edit it, and save it.
+Edit and save with vim. Things will be encrypted after you quit the editor.
 
 ## Dependencies
 It only requires **bash**, **openssl**, **vim** to run.
