@@ -11,7 +11,7 @@ ENCRYPT_METHOD=-aes-256-cbc
 export PASSWORD
 
 if [ ! -f $FILE ]; then
-    read -s -p "Please initialize your password: " PASSWORD
+    read -s -p "Please setup your password: " PASSWORD
     echo
     echo "Anything you put in here will be encrypted. Shhhhh...." > $FILE.tmp
 else
