@@ -27,14 +27,18 @@ else
     fi
 fi
 
-DATE_BEFORE=$(stat -f "%Sm" $FILE.tmp)
-vim $FILE.tmp
-DATE_AFTER=$(stat -f "%Sm" $FILE.tmp)
+if [ "-p" = "$2" ]; then
+    read -s -p "Please enter new password: " PASSWORD
+else
+    DATE_BEFORE=$(stat -f "%Sm" $FILE.tmp)
+    vim $FILE.tmp
+    DATE_AFTER=$(stat -f "%Sm" $FILE.tmp)
 
-if [ "$DATE_BEFORE" = "$DATE_AFTER" ]; then
-    rm $FILE.tmp
-    echo "No changes made, exit."
-    exit 0
+    if [ "$DATE_BEFORE" = "$DATE_AFTER" ]; then
+        rm $FILE.tmp
+        echo "No changes made, exit."
+        exit 0
+    fi
 fi
 
 RESULT=$?
