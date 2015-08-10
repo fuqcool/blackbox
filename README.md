@@ -5,7 +5,7 @@ Inspired by John Resig, this tool encrypts almost everything that can be put int
 ### Edit file
 
 ```
-./blackbox.sh FILE-YOU-WANNA-ENCRYPT
+./blackbox FILE-YOU-WANNA-ENCRYPT
 ```
 
 Edit and save with vim. The file content will be encrypted after you quit the editor.
@@ -13,8 +13,12 @@ Edit and save with vim. The file content will be encrypted after you quit the ed
 ### Change password
 
 ```
-./blackbox.sh FILE-YOU-WANNA-ENCRYPT -p
+./blackbox FILE-YOU-WANNA-ENCRYPT -p
 ```
+
+## Example
+
+Try `./blackbox sample.txt` with password `123`.
 
 ## Dependencies
 - bash
