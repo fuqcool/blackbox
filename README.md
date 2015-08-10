@@ -1,17 +1,25 @@
-Inspired by John Resig, this tool encrypts almost everything that can be put into text, such as password, love letter, diary, porn websites, etc.
+Inspired by John Resig, this tool encrypts almost everything that can be put into text, such as password, love letter, diary, etc.
 
 ## Usage
 
-Open your shell, use command
+### Edit file
 
 ```
 ./blackbox.sh FILE-YOU-WANNA-ENCRYPT
 ```
 
-Edit and save with vim. Things will be encrypted after you quit the editor.
+Edit and save with vim. The file content will be encrypted after you quit the editor.
+
+### Change password
+
+```
+./blackbox.sh FILE-YOU-WANNA-ENCRYPT -p
+```
 
 ## Dependencies
-It only requires **bash**, **openssl**, **vim** to run.
+- bash
+- openssl
+- vim
 
 ## License
 MIT License
